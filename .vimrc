@@ -228,8 +228,14 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" Toggle NERDTree with leader-t
+map <leader>t :NERDTreeToggle<cr>
+
 " Show cursor line
 set cursorline
+
+" Set vertical rule at 80 characters
+set colorcolumn=80
 
 " => Helper functions
 
