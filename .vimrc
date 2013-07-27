@@ -131,10 +131,6 @@ map <C-l> <C-W>l
 " Add semicolon to the end of line in insert mode
 imap <C-s> <C-o>A;
 
-" Add curly braces to the end of line and indent
-" This relys on AutoClose plugin
-imap <C-b> <C-o>A {<cr><C-o>O
-
 " Close the current buffer
 map <leader>bd :Bclose<cr>
 
