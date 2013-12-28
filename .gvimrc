@@ -12,3 +12,6 @@ set guioptions-=L
 
 " don't show tabs
 set showtabline=0
+
+" disable error bells
+set vb t_vb=

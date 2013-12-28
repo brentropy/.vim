@@ -119,7 +119,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 map <space> /
 map <c-space> ?
 
-" Disable highlight when <leader><cr> is pressed
+" Disable highlight when <leader><space> is pressed
 map <silent> <leader><space> :noh<cr>
 
 " Smart way to move between windows
@@ -159,8 +159,6 @@ map 0 ^
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
@@ -238,7 +236,23 @@ map <leader>t :NERDTreeToggle<cr>
 set cursorline
 
 " Set vertical rule at 80 characters
-set colorcolumn=80
+set colorcolumn=81
+
+" tabular key mappings
+nmap <Leader><Tab> :Tabularize /=<CR>
+vmap <Leader><Tab>  :Tabularize /=<CR>
+nmap <Leader><Leader><Tab>  :Tabularize /:\zs<CR>
+vmap <Leader><Leader><Tab>  :Tabularize /:\zs<CR>
+
+" configure supertab to use <c-x><c-o>
+let g:SuperTabDefaultCompletionType = "\<c-x>\<c-o>"
+set completeopt=longest,menuone
+
+" automatically reload .vimrc after changes
+augroup myvimrc
+    au!
+    au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
 " => Helper functions
 
