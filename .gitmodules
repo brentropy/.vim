@@ -60,4 +60,4 @@
 	url = git@github.com:ervandew/supertab.git
 [submodule "bundle/vim-nodejs-complete"]
 	path = bundle/vim-nodejs-complete
-	url = git@github.com:ahayman/vim-nodejs-complete.git
+	url = git@github.com:myhere/vim-nodejs-complete.git
