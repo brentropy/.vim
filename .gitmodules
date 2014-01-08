@@ -61,3 +61,6 @@
 [submodule "bundle/vim-nodejs-complete"]
 	path = bundle/vim-nodejs-complete
 	url = git@github.com:myhere/vim-nodejs-complete.git
+[submodule "bundle/vim-json"]
+	path = bundle/vim-json
+	url = git@github.com:elzr/vim-json.git
