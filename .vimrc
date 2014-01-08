@@ -102,6 +102,9 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
+" Use tabs instead of spaces for golang
+autocmd Filetype go setlocal noexpandtab
+
 " Linebreak on 500 characters
 set lbr
 set tw=500
