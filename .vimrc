@@ -259,6 +259,13 @@ augroup myvimrc
     au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
+" preview markdown in Marked.app
+function! s:setupMarkup()
+  nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
+endfunction
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set filetype=markdown
+
 " => Helper functions
 
 function! CmdLine(str)
