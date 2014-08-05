@@ -78,7 +78,7 @@ let g:indentLine_char = '┆'
 
 syntax enable " Enable syntax highlighting:
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-monokai " Set color scheme
+colorscheme base16-eighties " Set color scheme
 set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -251,6 +251,7 @@ vmap <Leader><Leader><Tab>  :Tabularize /:\zs<CR>
 
 " configure supertab to use <c-x><c-o>
 let g:SuperTabDefaultCompletionType = "\<c-x>\<c-o>"
+let g:SuperTabMappingForward = "<C-Space>"
 set completeopt=longest,menuone
 
 " automatically reload .vimrc after changes
