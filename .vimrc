@@ -254,6 +254,9 @@ let g:SuperTabDefaultCompletionType = "\<c-x>\<c-o>"
 let g:SuperTabMappingForward = "<C-Space>"
 set completeopt=longest,menuone
 
+" configure auto-pairs
+let g:AutoPairsShortcutJump = '<C-l>'
+
 " automatically reload .vimrc after changes
 augroup myvimrc
     au!
