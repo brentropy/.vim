@@ -82,3 +82,12 @@
 [submodule "bundle/auto-pairs"]
 	path = bundle/auto-pairs
 	url = git://github.com/jiangmiao/auto-pairs.git
+[submodule "bundle/ack.vim"]
+	path = bundle/ack.vim
+	url = git@github.com:mileszs/ack.vim.git
+[submodule "bundle/vim-slime"]
+	path = bundle/vim-slime
+	url = git@github.com:jpalardy/vim-slime.git
+[submodule "bundle/vim-go"]
+	path = bundle/vim-go
+	url = git@github.com:fatih/vim-go.git

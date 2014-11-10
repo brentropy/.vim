@@ -77,7 +77,7 @@ set tm=500
 let g:indentLine_char = '┆'
 
 syntax enable " Enable syntax highlighting:
-let base16colorspace=256  " Access colors present in 256 colorspace
+"let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-eighties " Set color scheme
 set background=dark
 
@@ -258,6 +258,9 @@ set completeopt=longest,menuone
 let g:AutoPairsShortcutJump = '<C-a>'
 let g:AutoPairsFlyMode = 0
 
+" fix indentLine/json conflict by not concealing on cursor
+let g:indentLine_noConcealCursor=1
+
 " automatically reload .vimrc after changes
 augroup myvimrc
     au!
@@ -270,6 +273,9 @@ function! s:setupMarkup()
 endfunction
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set filetype=markdown
+
+" Support jsx with syntastic
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 " => Helper functions
 
