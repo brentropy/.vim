@@ -77,9 +77,9 @@ set tm=500
 let g:indentLine_char = '┆'
 
 syntax enable " Enable syntax highlighting:
-"let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-eighties " Set color scheme
+colorscheme base16-tomorrow " Set color scheme
 set background=dark
+set t_Co=16
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -276,6 +276,13 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set filetype=markdown
 
 " Support jsx with syntastic
 let g:syntastic_javascript_checkers = ['jsxhint']
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_detect_whitespace=0
+
+" Mouse integration
+set mouse=a
 
 " => Helper functions
 
