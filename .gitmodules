@@ -94,3 +94,9 @@
 [submodule "bundle/vim-tmux-navigator"]
 	path = bundle/vim-tmux-navigator
 	url = git@github.com:christoomey/vim-tmux-navigator.git
+[submodule "bundle/vim-jst"]
+	path = bundle/vim-jst
+	url = git@github.com:briancollins/vim-jst.git
+[submodule "bundle/vim-fish"]
+	path = bundle/vim-fish
+	url = git@github.com:dag/vim-fish.git

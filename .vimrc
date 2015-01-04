@@ -278,11 +278,14 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set filetype=markdown
 let g:syntastic_javascript_checkers = ['jsxhint']
 
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
 let g:airline_detect_whitespace=0
 
 " Mouse integration
 set mouse=a
+
+" Use bash to make syntastic happy
+set shell=/bin/bash
 
 " => Helper functions
 
