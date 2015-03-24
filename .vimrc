@@ -275,7 +275,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set filetype=markdown
 
 " Support jsx with syntastic
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['standard']
 
 " Airline
 let g:airline_powerline_fonts=1
