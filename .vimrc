@@ -16,8 +16,9 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-"let mapleader = ","
-"let g:mapleader = ","
+nnoremap <space> <Nop>
+let mapleader = " "
+let g:mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -119,11 +120,11 @@ vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+"map <space> /
+"map <c-space> ?
 
 " Disable highlight when <leader><space> is pressed
-map <silent> <leader><space> :noh<cr>
+map <silent> <leader>/ :noh<cr>
 
 " Smart way to move between windows
 map <C-j> <C-W>j
@@ -251,12 +252,14 @@ vmap <Leader><Leader><Tab>  :Tabularize /:\zs<CR>
 
 " configure supertab to use <c-x><c-o>
 let g:SuperTabDefaultCompletionType = "\<c-x>\<c-o>"
-let g:SuperTabMappingForward = "<C-Space>"
+let g:SuperTabMappingForward = "<C-n>"
 set completeopt=longest,menuone
 
 " configure auto-pairs
 let g:AutoPairsShortcutJump = '<C-a>'
 let g:AutoPairsFlyMode = 0
+
+" configure snipmate
 
 " fix indentLine/json conflict by not concealing on cursor
 let g:indentLine_noConcealCursor=1
@@ -275,11 +278,15 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} set filetype=markdown
 
 " Support jsx with syntastic
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
+let g:syntastic_aggregate_errors = 1
 
 " Airline
 let g:airline_powerline_fonts=1
 let g:airline_detect_whitespace=0
+
+" Disable flow checking on save
+let g:flow#enable = 0
 
 " Mouse integration
 set mouse=a
