@@ -109,3 +109,12 @@
 [submodule "bundle/vim-flow"]
 	path = bundle/vim-flow
 	url = git://github.com/facebook/vim-flow.git
+[submodule "bundle/yajs.vim"]
+	path = bundle/yajs.vim
+	url = https://github.com/othree/yajs.vim
+[submodule "bundle/tsuquyomi"]
+	path = bundle/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git
+[submodule "bundle/yats.vim"]
+	path = bundle/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim.git
