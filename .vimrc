@@ -75,7 +75,7 @@ set t_vb=
 set tm=500
 
 " Configure indent line plugin
-let g:indentLine_char = '┆'
+let g:indentLine_char = '·'
 
 syntax enable " Enable syntax highlighting:
 colorscheme base16-tomorrow " Set color scheme
@@ -104,7 +104,9 @@ set shiftwidth=2
 set tabstop=2
 
 " Use tabs instead of spaces for golang
-autocmd Filetype go setlocal noexpandtab
+augroup go_tabs
+  autocmd Filetype go setlocal noexpandtab
+augroup END
 
 " Linebreak on 500 characters
 set lbr
@@ -145,12 +147,12 @@ map <leader>ba :1,1000 bd!<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+"autocmd BufReadPost *
+"    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"    \   exe "normal! g`\"" |
+"    \ endif
 " Remember info about open buffers on close
-set viminfo^=%
+"set viminfo^=%
 
 " Always show the status line
 set laststatus=2
@@ -162,8 +164,6 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 map 0 ^
 
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-nmap <C-J> mz:m+<cr>`z
-nmap <C-K> mz:m-2<cr>`z
 vmap <C-J> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <C-K> :m'<-2<cr>`>my`<mzgv`yo`z
 
@@ -180,8 +180,11 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+augroup delete_trailing_whitespace
+  autocmd BufWrite *.py :call DeleteTrailingWS()
+  autocmd BufWrite *.coffee :call DeleteTrailingWS()
+  autocmd BufWrite *.js :call DeleteTrailingWS()
+augroup END
 
 " When you press gv you vimgrep after the selected text
 vnoremap <silent> gv :call VisualSelection('gv')<CR>
@@ -229,11 +232,12 @@ map <leader>q :e ~/buffer<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-" Open a NERDTree automatically when vim starts up if no files were specified?
-autocmd vimenter * if !argc() | NERDTree | endif
-
-" Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup nerd_tree
+  " Open a NERDTree automatically when vim starts up if no files were specified?
+  autocmd vimenter * if !argc() | NERDTree | endif
+  " Close vim if the only window left open is a NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+augroup END
 
 " Toggle NERDTree with leader-t
 map <leader>t :NERDTreeToggle<cr>
@@ -290,6 +294,12 @@ let g:flow#enable = 0
 
 " Mouse integration
 set mouse=a
+
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 
 " Use bash to make syntastic happy
 set shell=/bin/bash
@@ -352,3 +362,13 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+" Quick added stuff
+
+nnoremap <leader>ev :split $MYVIMRC<cr>Go
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+augroup fix_movement_while_writing_block
+  autocmd!
+  autocmd BufWritePost * :redraw!
+augroup END
