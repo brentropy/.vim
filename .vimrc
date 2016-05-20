@@ -372,3 +372,5 @@ augroup fix_movement_while_writing_block
   autocmd!
   autocmd BufWritePost * :redraw!
 augroup END
+
+inoremap jk <esc>
