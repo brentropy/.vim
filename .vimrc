@@ -79,7 +79,7 @@ let g:indentLine_char = '·'
 
 syntax enable " Enable syntax highlighting:
 colorscheme base16-tomorrow " Set color scheme
-set background=dark
+set background=light
 set t_Co=16
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -105,6 +105,7 @@ set tabstop=2
 
 " Use tabs instead of spaces for golang
 augroup go_tabs
+  autocmd!
   autocmd Filetype go setlocal noexpandtab
 augroup END
 
@@ -374,3 +375,5 @@ augroup fix_movement_while_writing_block
 augroup END
 
 inoremap jk <esc>
+
+let loaded_matchparen = 1

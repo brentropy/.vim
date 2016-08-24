@@ -118,6 +118,9 @@
 [submodule "bundle/yats.vim"]
 	path = bundle/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
-[submodule "bundle/vimproc.vim.git"]
-	path = bundle/vimproc.vim.git
-	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "bundle/vim-mustache-handlebars"]
+	path = bundle/vim-mustache-handlebars
+	url = git://github.com/mustache/vim-mustache-handlebars.git
+[submodule "bundle/vimproc.vim"]
+	path = bundle/vimproc.vim
+	url = git@github.com:Shougo/vimproc.vim.git
